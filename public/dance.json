@@ -1,62 +1,62 @@
 [
   {
-    "image": "https://example.com/dance1.jpg",
+    "image": "https://i.ibb.co/mR5nDzM/istockphoto-827891858-1024x1024.jpg",
     "className": "Hip Hop Dance",
     "instructorName": "John Smith",
     "availableSeats": 10,
     "price": "$50"
   },
   {
-    "image": "https://example.com/dance2.jpg",
+    "image": "https://i.ibb.co/Ycw5FW8/172-A4241-EDIT.jpg",
     "className": "Ballet Dance",
     "instructorName": "Emily Johnson",
     "availableSeats": 5,
     "price": "$60"
   },
   {
-    "image": "https://example.com/dance3.jpg",
+    "image": "https://i.ibb.co/k849nv6/istockphoto-1348130126-612x612-1.jpg",
     "className": "Salsa Dance",
     "instructorName": "Carlos Rodriguez",
     "availableSeats": 8,
     "price": "$45"
   },
   {
-    "image": "https://example.com/dance4.jpg",
+    "image": "https://i.ibb.co/T2pdNLS/istockphoto-511309540-612x612.jpg",
     "className": "Contemporary Dance",
     "instructorName": "Sophia Davis",
     "availableSeats": 12,
     "price": "$55"
   },
   {
-    "image": "https://example.com/dance5.jpg",
+    "image": "https://i.ibb.co/J37H364/istockphoto-1042716304-612x612.jpg",
     "className": "Tap Dance",
     "instructorName": "Michael Thompson",
     "availableSeats": 7,
     "price": "$50"
   },
   {
-    "image": "https://example.com/dance6.jpg",
+    "image": "https://i.ibb.co/nwVcZ7m/istockphoto-157512760-612x612.jpg",
     "className": "Bollywood Dance",
     "instructorName": "Priya Patel",
     "availableSeats": 15,
     "price": "$40"
   },
   {
-    "image": "https://example.com/dance7.jpg",
+    "image": "https://i.ibb.co/xskPh4N/istockphoto-1214694046-612x612.jpg",
     "className": "Latin Dance",
     "instructorName": "Juan Martinez",
     "availableSeats": 10,
     "price": "$55"
   },
   {
-    "image": "https://example.com/dance12.jpg",
+    "image": "https://i.ibb.co/zh9vVwX/istockphoto-947000336-612x612.jpg",
     "className": "Jazz Dance",
     "instructorName": "Michael Thompson",
     "availableSeats": 15,
     "price": "$55"
   },
   {
-    "image": "https://example.com/dance14.jpg",
+    "image": "https://i.ibb.co/10jgMKG/istockphoto-1165709217-612x612.jpg",
     "className": "Belly Dance",
     "instructorName": "Layla Khalid",
     "availableSeats": 8,
