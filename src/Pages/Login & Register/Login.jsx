@@ -8,6 +8,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const [show, setShow] = useState(false);
+  const [error, setError] = useState('');
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,6 +26,7 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    setError('')
     logIn(data.email, data.password)
       .then((result) => {
         console.log(result.user);
@@ -32,7 +34,7 @@ const Login = () => {
         // navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setError(error);
       });
   };
   return (
@@ -92,16 +94,7 @@ const Login = () => {
                   </Link>{" "}
                 </p>
                 <SocialLogin></SocialLogin>
-                {/* <div className="divider">OR</div>
-                <div>
-                  <button
-                    // onClick={handleGoogleSing}
-                    className="hover:bg-green-400 flex font-bold items-center justify-center gap-4 border border-indigo-600 rounded-md w-full mx-auto py-2 text-center"
-                  >
-                    <FaGoogle></FaGoogle> Login With Google
-                  </button>
-                </div> */}
-                {/* <div className="text-red-600 my-4 font-bold">{error}</div> */}
+                <div className="text-red-600 my-4 font-bold">{error}</div>
               </div>
             </div>
           </div>
