@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+// import { FaGoogle } from "react-icons/fa";
+import SocialLogin from "../../components/SocialLogin";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const [show, setShow] = useState(false);
+  const { logIn } = useContext(AuthContext);
+  const showPassword = () => {
+    setShow(!show);
+  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    logIn(data.email, data.password)
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  };
   return (
     <section className="max-w-full mx-auto bg-green-200">
       <div className="max-w-7xl mx-auto bg-green-200">
@@ -14,9 +40,7 @@ const Login = () => {
             <div className="card w-full max-w-sm shadow-2xl bg-green-300">
               <div className="card-body w-full">
                 <h1 className="text-5xl font-bold text-center mb-6">Login</h1>
-                <form 
-                // onSubmit={handleLogin}
-                >
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Email</span>
@@ -26,21 +50,32 @@ const Login = () => {
                       name="email"
                       placeholder="Email"
                       className="input input-bordered"
+                      {...register("email", { required: true })}
                     />
                   </div>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Password</span>
                     </label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="password"
-                      className="input input-bordered"
-                    />
+                    <div className="flex w-full">
+                      <input
+                        type={show ? "text" : "password"}
+                        name="password"
+                        placeholder="password"
+                        className="input input-bordered w-full"
+                        {...register("password", { required: true })}
+                      />
+                      <button
+                        type="button"
+                        onClick={showPassword}
+                        className="-ml-8"
+                      >
+                        {show ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                      </button>
+                    </div>
                   </div>
                   <div className="form-control mt-6">
-                    <input className="btn-custom" type="submit" value="Login" />
+                    <input className="btn" type="submit" value="Login" />
                   </div>
                 </form>
                 {/* state={{from: location?.state}} */}

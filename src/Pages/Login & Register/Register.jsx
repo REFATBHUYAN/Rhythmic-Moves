@@ -1,32 +1,53 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    const [error, setError] = useState('');
-    const {createUser, user, updateUser} = useContext(AuthContext);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => {
-    console.log(data)
-    setError('');
-    if(data.password != data.confirmPassword){
-        setError('Password Does not match');
-        return;
+  const [error, setError] = useState("");
+  const { createUser, user, updateUserProfile, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    setError("");
+    if (data.password != data.confirmPassword) {
+      setError("Password Does not match");
+      return;
     }
     createUser(data.email, data.password)
-    .then(result =>{
+      .then((result) => {
         const loggedUser = result.user;
-                console.log(loggedUser);
-                updateUser(user, data.name, data.photo)
-                .then()
-    })
-    .catch(error => {
-        console.log(error)
-        setError(error)
-    })
-};
+        console.log(loggedUser);
+        updateUserProfile(data.name, data.photo).then(() => {
+        //   console.log(result);
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          logOut();
+          navigate('/login')
+
+        })
+        .catch(error=> console.log(error))
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
+  };
   return (
     <section className="bg-green-200 max-w-full mx-auto">
       <div className="max-w-7xl mx-auto">
@@ -40,9 +61,7 @@ const Register = () => {
                 <h1 className="text-5xl font-bold text-center mb-6">
                   Register
                 </h1>
-                <form 
-                onSubmit={handleSubmit(onSubmit)}
-                >
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Name</span>
@@ -52,8 +71,7 @@ const Register = () => {
                       name="name"
                       placeholder="Name"
                       className="input input-bordered"
-                      {...register("name",{ required: true })}
-                      
+                      {...register("name", { required: true })}
                     />
                   </div>
                   <div className="form-control">
@@ -65,7 +83,7 @@ const Register = () => {
                       name="photo"
                       placeholder="PhotoURL"
                       className="input input-bordered"
-                      {...register("photo",{ required: true })}
+                      {...register("photo", { required: true })}
                     />
                   </div>
                   <div className="form-control">
@@ -77,9 +95,9 @@ const Register = () => {
                       name="email"
                       placeholder="email"
                       className="input input-bordered"
-                      {...register("email",{ required: true })}
+                      {...register("email", { required: true })}
                     />
-                     {errors.email && <span>Email is Required</span>}
+                    {errors.email && <span>Email is Required</span>}
                   </div>
                   <div className="form-control">
                     <label className="label">
@@ -90,9 +108,16 @@ const Register = () => {
                       name="password"
                       placeholder="password"
                       className="input input-bordered"
-                      {...register("password",{required: true, pattern: /^(?=.*[A-Z])(?=.*[^.A-Za-z0-9]).{6,}$/ })}
+                      {...register("password", {
+                        required: true,
+                        pattern: /^(?=.*[A-Z])(?=.*[^.A-Za-z0-9]).{6,}$/,
+                      })}
                     />
-                    {errors.password && <span>At least a Capital Letter & number and 6 char minimum</span>}
+                    {errors.password && (
+                      <span>
+                        At least a Capital Letter & number and 6 char minimum
+                      </span>
+                    )}
                   </div>
                   <div className="form-control">
                     <label className="label">
@@ -103,15 +128,11 @@ const Register = () => {
                       name="confirmPassword"
                       placeholder="password"
                       className="input input-bordered"
-                      {...register("confirmPassword",{ required: true })}
+                      {...register("confirmPassword", { required: true })}
                     />
                   </div>
                   <div className="form-control mt-6">
-                    <input
-                      className="btn"
-                      type="submit"
-                      value="Register"
-                    />
+                    <input className="btn" type="submit" value="Register" />
                   </div>
                 </form>
                 {/* state={{from: location?.state}} */}

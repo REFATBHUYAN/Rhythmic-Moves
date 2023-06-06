@@ -25,13 +25,15 @@ const AuthProvider = ({children}) => {
         setLoading(true); 
         return signOut(auth);
     }
-    const updateUser = (user,name, photo) =>{
+    
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
+    }
+    const googleLogIn =() =>{
         setLoading(true);
-        // console.log(auth.currentUser);
-        return updateProfile(user,{
-            displayName: name, 
-            photoURL: photo
-          })
+        return signInWithPopup(auth, googleProvider)
     }
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, loggedUser =>{
@@ -43,16 +45,13 @@ const AuthProvider = ({children}) => {
             unsubscribe();
         }
     },[])
-    const googleLogIn =() =>{
-        setLoading(true);
-        return signInWithPopup(auth, googleProvider)
-    }
+    
 
     const authItem ={
         
         googleLogIn,
         createUser,
-        updateUser,
+        updateUserProfile,
         logIn,
         logOut,
         loading,
