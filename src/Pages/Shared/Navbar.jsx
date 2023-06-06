@@ -1,8 +1,15 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
-    const user = null;
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogout = () =>{
+    logOut();
+    navigate('/login')
+    
+  }
   const navOptions = (
     <>
       <li>
@@ -47,38 +54,6 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      {/* {user && (
-        <li>
-          <NavLink
-            to={`/mytoys`}
-            className={({ isActive, isPending }) =>
-              isActive
-                ? "bg-green-600 text-white rounded-md"
-                : isPending
-                ? "pending"
-                : ""
-            }
-          >
-            My Toys
-          </NavLink>
-        </li>
-      )} */}
-      {/* {user && (
-        <li>
-          <NavLink
-            to={`/addtoy`}
-            className={({ isActive, isPending }) =>
-              isActive
-                ? "bg-green-600 text-white rounded-md"
-                : isPending
-                ? "pending"
-                : ""
-            }
-          >
-            Add A Toy
-          </NavLink>
-        </li>
-      )} */}
       <li>
         <NavLink
           to={`/blog`}
@@ -93,48 +68,15 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       </li>
-      {user ? (
-        <li>
-          <NavLink
-            to={`/login`}
-            // onClick={handleLogout}
-            className={({ isActive, isPending }) =>
-              isActive
-                ? "bg-green-600 text-white rounded-md"
-                : isPending
-                ? "pending"
-                : ""
-            }
+      { user && <li>
+          <button
+            onClick={handleLogout}
           >
             LogOut
-          </NavLink>
-        </li>
-      ) : (
-        <li>
-          <NavLink
-            to={`/login`}
-            className={({ isActive, isPending }) =>
-              isActive
-                ? "bg-green-600 text-white rounded-md"
-                : isPending
-                ? "pending"
-                : ""
-            }
-          >
-            Login
-          </NavLink>
-        </li>
-      )}
-      {/* {user && (
-        <>
-          <button
-            title={user?.displayName}
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <img className="w-full rounded-full mr-4" src={user?.photoURL} />
           </button>
-        </>
-      )} */}
+        </li>
+       }
+      
     </>
   );
   return (
@@ -168,18 +110,36 @@ const Navbar = () => {
           <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {navOptions}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          {user && (
+          {user ? (
             <>
               <button
-                // title={user?.displayName}
+                title={user?.displayName}
                 className="btn btn-ghost btn-circle avatar"
               >
-                <img className="w-full rounded-full mr-4" src={user.photoURL ? user?.photoURL : 'https://i.ibb.co/zXbT9GV/image.png'} />
+                <img
+                  className="w-full rounded-full mr-4"
+                  src={user?.photoURL || "https://i.ibb.co/zXbT9GV/image.png"}
+                />
+              </button>
+            </>
+          ) : (
+            <>
+              <button>
+                <NavLink
+                  to={`/login`}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "text-blue-600 font-bold underline"
+                      : isPending
+                      ? "pending"
+                      : ""
+                  }
+                >
+                  Login
+                </NavLink>
               </button>
             </>
           )}

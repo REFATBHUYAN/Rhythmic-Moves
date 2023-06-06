@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { FaGoogle } from "react-icons/fa";
 import SocialLogin from "../../components/SocialLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -9,6 +9,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
   const [show, setShow] = useState(false);
   const { logIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const showPassword = () => {
     setShow(!show);
   };
@@ -22,12 +26,14 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     logIn(data.email, data.password)
-    .then(result => {
-      console.log(result.user);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .then((result) => {
+        console.log(result.user);
+        navigate('/');
+        // navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <section className="max-w-full mx-auto bg-green-200">
