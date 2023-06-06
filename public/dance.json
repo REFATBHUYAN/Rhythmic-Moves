@@ -1,0 +1,65 @@
+[
+  {
+    "image": "https://example.com/dance1.jpg",
+    "className": "Hip Hop Dance",
+    "instructorName": "John Smith",
+    "availableSeats": 10,
+    "price": "$50"
+  },
+  {
+    "image": "https://example.com/dance2.jpg",
+    "className": "Ballet Dance",
+    "instructorName": "Emily Johnson",
+    "availableSeats": 5,
+    "price": "$60"
+  },
+  {
+    "image": "https://example.com/dance3.jpg",
+    "className": "Salsa Dance",
+    "instructorName": "Carlos Rodriguez",
+    "availableSeats": 8,
+    "price": "$45"
+  },
+  {
+    "image": "https://example.com/dance4.jpg",
+    "className": "Contemporary Dance",
+    "instructorName": "Sophia Davis",
+    "availableSeats": 12,
+    "price": "$55"
+  },
+  {
+    "image": "https://example.com/dance5.jpg",
+    "className": "Tap Dance",
+    "instructorName": "Michael Thompson",
+    "availableSeats": 7,
+    "price": "$50"
+  },
+  {
+    "image": "https://example.com/dance6.jpg",
+    "className": "Bollywood Dance",
+    "instructorName": "Priya Patel",
+    "availableSeats": 15,
+    "price": "$40"
+  },
+  {
+    "image": "https://example.com/dance7.jpg",
+    "className": "Latin Dance",
+    "instructorName": "Juan Martinez",
+    "availableSeats": 10,
+    "price": "$55"
+  },
+  {
+    "image": "https://example.com/dance12.jpg",
+    "className": "Jazz Dance",
+    "instructorName": "Michael Thompson",
+    "availableSeats": 15,
+    "price": "$55"
+  },
+  {
+    "image": "https://example.com/dance14.jpg",
+    "className": "Belly Dance",
+    "instructorName": "Layla Khalid",
+    "availableSeats": 8,
+    "price": "$45"
+  }
+]
