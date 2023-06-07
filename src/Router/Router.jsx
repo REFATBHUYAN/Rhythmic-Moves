@@ -7,6 +7,7 @@ import ErrorPage from '../Pages/Shared/ErrorPage';
 import Home from '../Pages/Home/Home';
 import Dashboard from '../Layout/Dashboard';
 import ManageUser from '../Pages/DashBoard/AdminRole/ManageUser';
+import AddClass from '../Pages/DashBoard/InstractorRole/AddClass';
 
 const router = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'addClass',
-          element: <div>this is instructor add a cls page</div>
+          element: <AddClass></AddClass>
         },
         {
           path: 'myClasses',

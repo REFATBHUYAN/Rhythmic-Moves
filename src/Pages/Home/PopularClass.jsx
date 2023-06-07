@@ -8,7 +8,8 @@ const PopularClass = () => {
     .then(res => res.json())
     .then(data =>{
         console.log(data);
-        setClasses(data.slice(0,6));
+        setClasses(data);
+        // setClasses(data.slice(0,6));
     })
   },[])
   return (

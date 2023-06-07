@@ -1,14 +1,17 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import useRoles from "../Hooks/useRoles";
 
 const Dashboard = () => {
-    const user = 'admin';
+    // const user = 'admin';
+    const [roles, isRolesLoading] = useRoles();
     // const user = 'instructor';
+    console.log(roles);
   const sideOptions = (
     <>
        
       {
-        user === 'instructor' && <>
+        roles == 'Instructor' && <>
         <li>
         <NavLink
           to={`/dashboard/addClass`}
@@ -40,7 +43,7 @@ const Dashboard = () => {
         </>
       }
       {
-        user === 'admin' && <>
+        roles == 'Admin' && <>
         <li>
         <NavLink
           to={`/dashboard/manageClasses`}
