@@ -12,11 +12,11 @@ const PopularClass = () => {
     })
   },[])
   return (
-    <div className="py-10">
+    <div className="py-10 w-full mx-auto px-5 md:pd-8">
       <h1 className="text-5xl font-bold text-center py-8">Popular Classes</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto w-full">
         {classes.map((item, i) => (
-          <div key={i} className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div key={i} className="card card-compact w-full bg-base-100 shadow-xl">
             <figure>
               <img
                 src={item.image}

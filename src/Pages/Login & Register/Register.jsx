@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const [axiosSecure] = useAxiosSecure();
   const { createUser, user, updateUserProfile, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -29,16 +31,25 @@ const Register = () => {
         console.log(loggedUser);
         updateUserProfile(data.name, data.photo).then(() => {
         //   console.log(result);
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User created successfully.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          logOut();
-          navigate('/login')
+        const user = { name: data.name, email: data.email, photo: data.photo };
+          axiosSecure.post('/users', user)
+            .then(data =>{
+              console.log('from axios', data.data)
+              reset();
+              if(data.data.insertedId){
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                logOut();
+                navigate('/login')
+              }
+              
+            })
+          
 
         })
         .catch(error=> console.log(error))

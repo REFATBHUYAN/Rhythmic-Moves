@@ -56,7 +56,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={`/blog`}
+          to={`/dashboard`}
           className={({ isActive, isPending }) =>
             isActive
               ? "bg-green-600 text-white rounded-md"
