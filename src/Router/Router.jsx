@@ -8,6 +8,7 @@ import Home from '../Pages/Home/Home';
 import Dashboard from '../Layout/Dashboard';
 import ManageUser from '../Pages/DashBoard/AdminRole/ManageUser';
 import AddClass from '../Pages/DashBoard/InstractorRole/AddClass';
+import ManageClasses from '../Pages/DashBoard/AdminRole/ManageClasses';
 
 const router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       children:[
         {
           path: 'manageClasses',
-          element: <div>this is admin class mane page</div>
+          element: <ManageClasses></ManageClasses>
         },
         {
           path: 'manageUser',
