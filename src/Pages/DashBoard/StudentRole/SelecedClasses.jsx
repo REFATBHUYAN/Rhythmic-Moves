@@ -1,24 +1,17 @@
-import React, { useContext } from "react";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useQuery } from "react-query";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import React from "react";
 import { Link } from "react-router-dom";
+import useCart from "../../../Hooks/useCart";
 
 const SelecedClasses = () => {
-  const { user } = useContext(AuthContext);
-  const [axiosSecure] = useAxiosSecure();
-  const { data: selectedCls = [], refetch } = useQuery(
-    ["selectedClass"],
-    async () => {
-      const res = await axiosSecure.get(`/selectClasses/${user?.email}`);
-      return res.data;
-    }
-  );
-  console.log(selectedCls);
+    const [cart, refetch] = useCart();
+    console.log(cart);
+    // how does reduce work!!!
+    const total = cart.reduce((sum, item) => item.price + sum, 0);
+  console.log(cart);
   return (
     <div>
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
-        <h3 className="text-3xl">Total Items: {selectedCls.length}</h3>
+        <h3 className="text-3xl">Total Items: {cart.length}</h3>
         <h3 className="text-3xl">Total Price: ${total}</h3>
         <Link to="/dashboard/payment">
           <button className="btn btn-warning btn-sm">PAY</button>
@@ -39,7 +32,7 @@ const SelecedClasses = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {selectedCls.map((user, i) => (
+              {cart.map((user, i) => (
                 <tr key={user._id}>
                   <th>{i + 1}</th>
                   <td>
@@ -56,13 +49,6 @@ const SelecedClasses = () => {
                   <td>{user?.price}</td>
                   <th>
                     <div className="flex gap-3">
-                      <button
-                        //   onClick={()=>makeInstructor(user)}
-                        //   disabled={user?.role ==='Instructor'}
-                        className="btn bg-green-300 btn-xs"
-                      >
-                        Pay
-                      </button>
                       <button
                         //   onClick={() => makeAdmin(user)}
                         //   disabled={user?.role ==='Admin'}

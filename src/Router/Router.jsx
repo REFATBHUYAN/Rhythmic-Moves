@@ -13,6 +13,7 @@ import FeedBack from '../Pages/DashBoard/AdminRole/FeedBack';
 import Classes from '../Pages/Classes/Classes';
 import Instructors from '../Pages/Instructors/Instructors';
 import SelecedClasses from '../Pages/DashBoard/StudentRole/SelecedClasses';
+import Payment from '../Pages/DashBoard/StudentRole/Payment';
 
 const router = createBrowserRouter([
     {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
         {
           path: 'selectedClasses',
           element: <SelecedClasses></SelecedClasses>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
         },
       ]
     }
