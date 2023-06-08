@@ -9,6 +9,7 @@ import Dashboard from '../Layout/Dashboard';
 import ManageUser from '../Pages/DashBoard/AdminRole/ManageUser';
 import AddClass from '../Pages/DashBoard/InstractorRole/AddClass';
 import ManageClasses from '../Pages/DashBoard/AdminRole/ManageClasses';
+import FeedBack from '../Pages/DashBoard/AdminRole/FeedBack';
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         {
           path: 'manageUser',
           element: <ManageUser></ManageUser>
+        },
+        {
+          path: 'manageClasses/feedback/:id',
+          element: <FeedBack></FeedBack>
         },
         {
           path: 'addClass',
