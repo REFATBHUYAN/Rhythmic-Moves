@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
   // const [disable, setDisable] = useState(false);
@@ -16,6 +17,15 @@ const ManageUser = () => {
     .then(data =>{
       console.log(data.data)
       refetch();
+      if(data.data.modifiedCount>0){
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "New Instructor Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+      }
     })
   }
   const makeAdmin = user =>{
@@ -23,6 +33,15 @@ const ManageUser = () => {
     .then(data =>{
       console.log(data.data)
       refetch();
+      if(data.data.modifiedCount>0){
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "New Admin Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+      }
     })
   }
   return (

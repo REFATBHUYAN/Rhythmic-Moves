@@ -10,6 +10,8 @@ import ManageUser from '../Pages/DashBoard/AdminRole/ManageUser';
 import AddClass from '../Pages/DashBoard/InstractorRole/AddClass';
 import ManageClasses from '../Pages/DashBoard/AdminRole/ManageClasses';
 import FeedBack from '../Pages/DashBoard/AdminRole/FeedBack';
+import Classes from '../Pages/Classes/Classes';
+import Instructors from '../Pages/Instructors/Instructors';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
         {
             path: 'register',
             element: <Register></Register>
+        },
+        {
+            path: 'classes',
+            element: <Classes></Classes>
+        },
+        {
+            path: 'instructors',
+            element: <Instructors></Instructors>
         },
       ]
     },

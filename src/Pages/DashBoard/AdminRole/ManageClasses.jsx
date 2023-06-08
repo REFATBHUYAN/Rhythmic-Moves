@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -19,6 +21,15 @@ const ManageClasses = () => {
       .then(data =>{
           console.log(data.data)
           refetch()
+          if(data.data.modifiedCount>0){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Approval Approved",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+          }
       })
     };
     const handleDeny = (item) => {
@@ -28,6 +39,16 @@ const ManageClasses = () => {
       .then(data =>{
           console.log(data.data)
           refetch()
+          if(data.data.modifiedCount>0){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Approval Denied",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+          }
+          
       })
     };
   return (
@@ -54,13 +75,17 @@ const ManageClasses = () => {
               <div className="card-actions">
                 <button
                   onClick={() => handleStatus(cls)}
+                //   disabled={cls.status === 'Approved'}
                   disabled={cls.status === 'Approved' || cls.status === 'Denied'}
                   className="btn btn-primary"
                 >
                   Approve
                 </button>
-                <button onClick={() => handleDeny(cls)} disabled={cls.status === 'Approved' || cls.status === 'Denied'} className="btn btn-primary">Deny</button>
-                <Link to={`feedback/${cls._id}`} className="btn btn-primary">Feedback</Link>
+                <button onClick={() => handleDeny(cls)} 
+                // disabled={ cls.status === 'Denied'} 
+                disabled={cls.status === 'Approved' || cls.status === 'Denied'} 
+                className="btn btn-primary">Deny</button>
+                <Link to={`feedback/${cls._id}`} disabled={cls.status != 'Denied'} className="btn btn-primary">Feedback</Link>
               </div>
             </div>
           </div>

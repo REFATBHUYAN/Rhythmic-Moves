@@ -28,7 +28,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={`/alltoys`}
+          to={`/instructors`}
           className={({ isActive, isPending }) =>
             isActive
               ? "bg-green-600 text-white rounded-md"
@@ -42,7 +42,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={`/alltoys`}
+          to={`/classes`}
           className={({ isActive, isPending }) =>
             isActive
               ? "bg-green-600 text-white rounded-md"
@@ -81,7 +81,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-green-200">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -102,7 +102,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow  rounded-box w-52"
             >
               {navOptions}
             </ul>
