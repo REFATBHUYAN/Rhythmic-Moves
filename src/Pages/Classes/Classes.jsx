@@ -1,20 +1,63 @@
-import React from "react";
+import React, { useContext } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "react-query";
+import useRoles from "../../Hooks/useRoles";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Classes = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [axiosSecure] = useAxiosSecure();
-  const { data: classes = [], refetch } = useQuery(["classesAprove"], async () => {
-    const res = await axiosSecure.get("/classes/approved");
-    return res.data;
-  });
+  const [roles, isRolesLoading] = useRoles();
+  const { data: classes = [], refetch } = useQuery(
+    ["classesAprove"],
+    async () => {
+      const res = await axiosSecure.get("/classes/approved");
+      return res.data;
+    }
+  );
   console.log(classes);
+  const handleSelect = (cls) => {
+    if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please Login First",
+        
+      });
+      navigate('/login')
+    }
+    const { name, price, email, className, seats, classImg } = cls;
+    const selectedAdd = {
+      userEmail: user?.email,
+      name,
+      price,
+      email,
+      className,
+      seats,
+      classImg,
+    };
+    axiosSecure.post("/selectClasses", selectedAdd).then((data) => {
+      console.log("from classes page", data.data);
+      if (data.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Class added successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1 className="font-bold text-5xl text-center">Classes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
-        {
-            classes.map(cls => <div key={cls._id} className="card w-full bg-base-100 shadow-xl">
+        {classes.map((cls) => (
+          <div key={cls._id} className="card w-full bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
               <img src={cls.classImg} alt="Shoes" className="rounded-xl" />
             </figure>
@@ -24,11 +67,20 @@ const Classes = () => {
               <p>Instructor Name: {cls.name}</p>
               <p>Price: ${cls.price}</p>
               <p>Available Seats: {cls.seats}</p>
-              {/* <p>Status: {cls.status}</p> */}
-              
+              <div className="card-actions">
+                <button
+                  onClick={() => handleSelect(cls)}
+                  disabled={
+                    roles == "Instructor" || roles == "Admin" || cls.seats == 0
+                  }
+                  className="btn btn-primary"
+                >
+                  Select
+                </button>
+              </div>
             </div>
-          </div>)
-        }
+          </div>
+        ))}
       </div>
     </div>
   );

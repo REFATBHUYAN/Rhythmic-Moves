@@ -12,6 +12,7 @@ import ManageClasses from '../Pages/DashBoard/AdminRole/ManageClasses';
 import FeedBack from '../Pages/DashBoard/AdminRole/FeedBack';
 import Classes from '../Pages/Classes/Classes';
 import Instructors from '../Pages/Instructors/Instructors';
+import SelecedClasses from '../Pages/DashBoard/StudentRole/SelecedClasses';
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         {
           path: 'myClasses',
           element: <div>this is instructor my classes page</div>
+        },
+        {
+          path: 'selectedClasses',
+          element: <SelecedClasses></SelecedClasses>
         },
       ]
     }

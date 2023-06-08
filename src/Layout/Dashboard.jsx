@@ -74,6 +74,38 @@ const Dashboard = () => {
       </li>
         </>
       }
+      {
+        roles == 'Student' && <>
+        <li>
+        <NavLink
+          to={`/dashboard/selectedClasses`}
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "bg-green-600 text-white rounded-md "
+              : isPending
+              ? "pending"
+              : ""
+          }
+        >
+          My Selected Classes
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={`/dashboard/enrollClasses`}
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "bg-green-600 text-white rounded-md "
+              : isPending
+              ? "pending"
+              : ""
+          }
+        >
+          My Enrolled Classes
+        </NavLink>
+      </li>
+        </>
+      }
       <li>
         <NavLink
           to={`/`}
