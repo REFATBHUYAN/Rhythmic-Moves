@@ -80,10 +80,10 @@ const Navbar = () => {
     </>
   );
   return (
-    <>
+    
       <div className="navbar bg-green-200">
-        <div className="navbar-start">
-          <div className="dropdown ">
+        <div className="navbar-start ">
+          <div className="dropdown  z-50">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow absolute  rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100  rounded-box w-52"
             >
               {navOptions}
             </ul>
@@ -145,7 +145,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </>
+   
   );
 };
 

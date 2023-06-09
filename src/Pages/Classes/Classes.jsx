@@ -29,12 +29,13 @@ const Classes = () => {
       });
       navigate('/login')
     }
-    const { name, price, email, className, seats, classImg, _id } = cls;
+    const { name, price, email, className, seats, classImg, _id, enrolled } = cls;
     const selectedAdd = {
       userEmail: user?.email,
       name,
       price,
       email,
+      enrolled,
       className,
       seats,
       classImg,
@@ -68,6 +69,7 @@ const Classes = () => {
               <p>Instructor Name: {cls.name}</p>
               <p>Price: ${cls.price}</p>
               <p>Available Seats: {cls.seats}</p>
+              <p>Enrolled Student: {cls.enrolled}</p>
               <div className="card-actions">
                 <button
                   onClick={() => handleSelect(cls)}

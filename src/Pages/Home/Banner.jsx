@@ -2,8 +2,8 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <>
-      <div className="relative carousel w-full sm:h-[400px] md:h-[600px] rounded-md">
+    
+      <div className=" carousel w-full sm:h-[400px] md:h-[600px] rounded-md">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="https://i.ibb.co/PwXpHh0/istockphoto-1205900002-612x612.jpg"
@@ -77,7 +77,6 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

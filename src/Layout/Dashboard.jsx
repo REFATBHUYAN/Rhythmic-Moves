@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import useRoles from "../Hooks/useRoles";
+import Navbar from "../Pages/Shared/Navbar";
+import Footer from "../Pages/Shared/Footer";
 
 const Dashboard = () => {
   // const user = 'admin';
@@ -137,6 +139,7 @@ const Dashboard = () => {
   );
   return (
     <>
+      <Navbar></Navbar>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
@@ -159,6 +162,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };
