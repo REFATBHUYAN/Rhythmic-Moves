@@ -29,7 +29,7 @@ const Classes = () => {
       });
       navigate('/login')
     }
-    const { name, price, email, className, seats, classImg } = cls;
+    const { name, price, email, className, seats, classImg, _id } = cls;
     const selectedAdd = {
       userEmail: user?.email,
       name,
@@ -38,6 +38,7 @@ const Classes = () => {
       className,
       seats,
       classImg,
+      classId: _id
     };
     axiosSecure.post("/selectClasses", selectedAdd).then((data) => {
       console.log("from classes page", data.data);

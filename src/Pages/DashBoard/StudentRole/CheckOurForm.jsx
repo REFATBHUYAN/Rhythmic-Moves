@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 // import './CheckOutFrom.css'
 
 const CheckOurForm = ({cart, price}) => {
@@ -12,7 +13,7 @@ const CheckOurForm = ({cart, price}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [cardError, setCardError] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
+    const [clientSecret, setClientSecret] = useState(''); 
 
      useEffect(() => {
         if (price > 0) {
@@ -23,6 +24,8 @@ const CheckOurForm = ({cart, price}) => {
                 })
         }
     }, [price, axiosSecure])
+
+    console.log(cart);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -81,15 +84,22 @@ const CheckOurForm = ({cart, price}) => {
                 date: new Date(),
                 quantity: cart.length,
                 cartItems: cart.map(item => item._id),
-                menuItems: cart.map(item => item.menuItemId),
+                classId: cart.map(item => item.classId),
                 status: 'service pending',
-                itemNames: cart.map(item => item.name)
+                classNames: cart.map(item => item.className)
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    if (res.data.result.insertedId) {
+                    if (res.data.insertResult.insertedId) {
                         // display confirm
+                        Swal.fire({
+                          position: "top-end",
+                          icon: "success",
+                          title: "Payment Success",
+                          showConfirmButton: false,
+                          timer: 1500,
+                        });
                     }
                 })
         }
