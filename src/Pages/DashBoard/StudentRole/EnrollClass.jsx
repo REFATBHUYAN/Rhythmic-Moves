@@ -12,8 +12,8 @@ const EnrollClass = () => {
   });
   console.log(enroolCls);
   return (
-    <div>
-      <h1 className="font-bold text-5xl text-center">My Enrolled Classes</h1>
+    <div className="py-8">
+      <h1 className="font-bold text-5xl text-center pb-8">My Enrolled Classes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
         {enroolCls.map((cls) => (
           <div key={cls._id} className="card w-full bg-base-100 shadow-xl border-2 shadow-blue-500/50  ">

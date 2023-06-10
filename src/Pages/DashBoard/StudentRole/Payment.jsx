@@ -19,7 +19,7 @@ const Payment = () => {
             <p className='text-center font-semibold mb-10'>Please Pay <span className='text-orange-600'>${singleClass?.price}</span> for your dance <span className='text-orange-600'>{singleClass?.className}</span> class</p>
             <div>
             <Elements stripe={stripePromise}>
-                <CheckOurForm cart={singleClass} price={singleClass.price}></CheckOurForm>
+                <CheckOurForm cart={singleClass} price={singleClass?.price}></CheckOurForm>
             </Elements>
             </div>
         </div>

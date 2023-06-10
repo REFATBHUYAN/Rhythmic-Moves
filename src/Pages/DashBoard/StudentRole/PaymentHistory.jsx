@@ -13,6 +13,7 @@ const PaymentHistory = () => {
       return res.data;
     }
   );
+  console.log(payments);
   return (
     <div>
       <div className="overflow-x-auto">
@@ -21,8 +22,8 @@ const PaymentHistory = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Quantity</th>
-              <th>Total Cost</th>
+              <th>Class Name</th>
+              <th>Price</th>
               <th>TransectionId</th>
               <th>Transaction Date</th>
             </tr>
@@ -32,7 +33,7 @@ const PaymentHistory = () => {
             {payments.map((user, i) => (
               <tr key={user._id}>
                 <th>{i + 1}</th>
-                <td>{user.quantity}</td>
+                <td>{user.classNames}</td>
                 <td>{user.price}</td>
                 <td>{user?.transactionId}</td>
                 {/* <th>{user.date}</th> */}
