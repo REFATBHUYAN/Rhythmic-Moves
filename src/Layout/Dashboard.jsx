@@ -1,13 +1,18 @@
-import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import useRoles from "../Hooks/useRoles";
 import Navbar from "../Pages/Shared/Navbar";
 import Footer from "../Pages/Shared/Footer";
+import { AuthContext } from "../Provider/AuthProvider";
+import { FaBook, FaBookOpen, FaRegCreditCard, FaRegEdit, FaUsersCog } from "react-icons/fa";
 
 const Dashboard = () => {
-  // const user = 'admin';
+  
+  const {user} = useContext(AuthContext);
   const [roles, isRolesLoading] = useRoles();
-  // const user = 'instructor';
+  const location = useLocation();
+  console.log(location)
+ 
   console.log(roles);
   const sideOptions = (
     <>
@@ -18,13 +23,13 @@ const Dashboard = () => {
               to={`/dashboard/addClass`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              Add A Class
+              <FaRegEdit className="inline-flex ml-2 mr-1 h-10"></FaRegEdit> Add A Class
             </NavLink>
           </li>
           <li>
@@ -32,13 +37,13 @@ const Dashboard = () => {
               to={`/dashboard/myClasses`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              My Classes
+              <FaBookOpen className="inline-flex ml-2 mr-1 h-10"></FaBookOpen> My Classes
             </NavLink>
           </li>
         </>
@@ -50,13 +55,13 @@ const Dashboard = () => {
               to={`/dashboard/manageClasses`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              Manage Classes
+             <FaRegEdit className="inline-flex ml-2 mr-1 h-10"></FaRegEdit> Manage Classes
             </NavLink>
           </li>
           <li>
@@ -64,13 +69,13 @@ const Dashboard = () => {
               to={`/dashboard/manageUser`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              Manage Users
+              <FaUsersCog className="inline-flex ml-2 mr-1 h-10"></FaUsersCog> Manage Users
             </NavLink>
           </li>
         </>
@@ -82,13 +87,13 @@ const Dashboard = () => {
               to={`/dashboard/selectedClasses`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              My Selected Classes
+              <FaBookOpen className="inline-flex ml-2 mr-1 h-10"></FaBookOpen> My Selected Classes
             </NavLink>
           </li>
           <li>
@@ -96,13 +101,13 @@ const Dashboard = () => {
               to={`/dashboard/enrollClasses`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              My Enrolled Classes
+              <FaBook className="inline-flex ml-2 mr-1 h-10"></FaBook> My Enrolled Classes
             </NavLink>
           </li>
           <li>
@@ -110,41 +115,35 @@ const Dashboard = () => {
               to={`/dashboard/paymentHistory`}
               className={({ isActive, isPending }) =>
                 isActive
-                  ? "bg-green-600 text-white rounded-md "
+                  ? "text-blue-700 font-bold"
                   : isPending
                   ? "pending"
                   : ""
               }
             >
-              Payment History
+              <FaRegCreditCard className="inline-flex ml-2 mr-1 h-10"></FaRegCreditCard> Payment History
             </NavLink>
           </li>
         </>
       )}
-      <li>
-        <NavLink
-          to={`/`}
-          className={({ isActive, isPending }) =>
-            isActive
-              ? "bg-green-600 text-white rounded-md "
-              : isPending
-              ? "pending"
-              : ""
-          }
-        >
-          Home
-        </NavLink>
-      </li>
+      
     </>
   );
   return (
     <>
       <Navbar></Navbar>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open max-w-7xl mx-auto">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
           {/* Page content here */}
-          <p className="text-5xl font-bold p-10">Hi, Welcome Back</p>
+          {
+            location.pathname === "/dashboard" && <>
+            <h1 className="mt-20 text-5xl font-bold text-center">Welcome {user?.displayName}</h1>
+            <p className="text-center text-5xl font-bold p-10">to</p>
+            <p className="text-5xl text-center font-bold ">{`Your ${roles}`} DashBoard</p>
+            </>
+          }
+          
           <Outlet></Outlet>
           <label
             htmlFor="my-drawer-2"
@@ -155,9 +154,8 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-green-200 text-black font-bold">
+          <ul className="gap-4 space-y-5 py-4 p-4 w-80 h-full bg-stone-100 text-black font-bold">
             {/* Sidebar content here menu*/}
-            <p className="text-3xl font-bold">Dashboard</p>
             {sideOptions}
           </ul>
         </div>

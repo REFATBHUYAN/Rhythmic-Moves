@@ -1,6 +1,7 @@
 import React from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "react-query";
+import { motion } from "framer-motion";
 
 const Instructors = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -13,21 +14,27 @@ const Instructors = () => {
   );
   console.log(instructors);
   return (
-    <div>
-      <h1 className="font-bold text-5xl text-center">Instructors</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
-        {
-            instructors.map(inst => <div key={inst._id} className="card w-full bg-base-100 shadow-xl">
+    <div className="max-w-7xl mx-auto py-10">
+      <h1 className="font-bold text-5xl text-center pb-6">Instructors</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-5">
+        {instructors.map((inst) => (
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            key={inst._id}
+            className="card w-full bg-base-100 shadow-xl border-2 shadow-blue-500/50  "
+          >
             <figure className="px-10 pt-10">
               <img src={inst.photo} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-              <h2 className="card-title">{inst.name}</h2>
-              <p>{inst.email}</p>
-              
+              <h2 className="card-title font-bold text-blue-600">
+                {inst.name}
+              </h2>
+              <p className="font-semibold">{inst.email}</p>
             </div>
-          </div>)
-        }
+          </motion.div>
+        ))}
       </div>
     </div>
   );

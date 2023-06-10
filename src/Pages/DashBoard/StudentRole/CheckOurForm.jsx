@@ -82,11 +82,15 @@ const CheckOurForm = ({cart, price}) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                quantity: cart.length,
-                cartItems: cart.map(item => item._id),
-                classId: cart.map(item => item.classId),
-                status: 'service pending',
-                classNames: cart.map(item => item.className)
+                quantity: 1,
+                cartItems: cart._id,
+                classId: cart.classId,
+                classNames: cart.className
+                // quantity: cart.length,
+                // cartItems: cart.map(item => item._id),
+                // classId: cart.map(item => item.classId),
+                // status: 'service pending',
+                // classNames: cart.map(item => item.className)
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {

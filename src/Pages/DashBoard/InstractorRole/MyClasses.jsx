@@ -1,21 +1,24 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
-const EnrollClass = () => {
+const MyClasses = () => {
   const { user } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
-  const { data: enroolCls = [], refetch } = useQuery(["users"], async () => {
-    const res = await axiosSecure.get(`/enrollClasses/${user?.email}`);
-    return res.data;
-  });
-  console.log(enroolCls);
+  const { data: myClasses = [], refetch } = useQuery(
+    ["myClasses"],
+    async () => {
+      const res = await axiosSecure.get(`/classes/myClasses/${user?.email}`);
+      return res.data;
+    }
+  );
+  console.log(myClasses);
   return (
-    <div>
-      <h1 className="font-bold text-5xl text-center">My Enrolled Classes</h1>
+    <div className="my-8">
+      <h1 className="font-semibold text-4xl text-center">My Classes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
-        {enroolCls.map((cls) => (
+        {myClasses.map((cls) => (
           <div key={cls._id} className="card w-full bg-base-100 shadow-xl border-2 shadow-blue-500/50  ">
             <figure className="px-10 pt-10">
               <img src={cls.classImg} alt="Shoes" className="rounded-xl" />
@@ -26,6 +29,11 @@ const EnrollClass = () => {
               <p>Instructor Name: {cls.name}</p>
               <p>Price: ${cls.price}</p>
               <p>Available Seats: {cls.seats}</p>
+              <p>Enrolled Students: {cls.enrolled}</p>
+              <p>Status: {cls.status}</p>
+              {
+                cls?.feedback && <p>Admin Feedback: {cls?.feedback}</p>
+              }
             </div>
           </div>
         ))}
@@ -34,4 +42,4 @@ const EnrollClass = () => {
   );
 };
 
-export default EnrollClass;
+export default MyClasses;

@@ -23,16 +23,17 @@ const SelecedClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/selectClass/${id}`)
-        .then((data) => {
-          console.log(data.data)
-          if(data.data.deletedCount > 0){
+        axiosSecure.delete(`/selectClass/${id}`).then((data) => {
+          console.log(data.data);
+          if (data.data.deletedCount > 0) {
             refetch();
-            Swal.fire("Deleted!", "This seleted Class has been deleted.", "success");
+            Swal.fire(
+              "Deleted!",
+              "This seleted Class has been deleted.",
+              "success"
+            );
           }
         });
-
-        
       }
     });
   };
@@ -41,9 +42,9 @@ const SelecedClasses = () => {
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-3xl">Total Items: {cart.length}</h3>
         <h3 className="text-3xl">Total Price: ${total}</h3>
-        <Link to="/dashboard/payment">
+        {/* <Link to="/dashboard/payment">
           <button className="btn btn-warning btn-sm">PAY</button>
-        </Link>
+        </Link> */}
       </div>
       <div>
         <div className="overflow-x-auto">
@@ -77,6 +78,9 @@ const SelecedClasses = () => {
                   <td>{user?.price}</td>
                   <th>
                     <div className="flex gap-3">
+                      <Link to={`/dashboard/payment/${user._id}`}>
+                        <button className="btn bg-green-300 btn-xs">PAY</button>
+                      </Link>
                       <button
                         onClick={() => handleDelete(user._id)}
                         className="btn bg-green-300 btn-xs"

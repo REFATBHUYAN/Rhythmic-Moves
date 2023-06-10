@@ -60,7 +60,7 @@ const ManageClasses = () => {
         {classes.map((cls) => (
           <div
             key={cls._id}
-            className="card card-compact w-full bg-base-100 shadow-xl"
+            className="card card-compact w-full bg-base-100 shadow-xl border-2 shadow-blue-500/50  "
           >
             <figure>
               <img src={cls.classImg} alt="Shoes" />

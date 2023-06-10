@@ -13,10 +13,10 @@ const Slider = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">
+                <h1 className="mb-5 text-5xl text-white font-bold">
                   Experience the Joy of Dance
                 </h1>
-                <p className="mb-5">
+                <p className="mb-5 font-semibold">
                   Experience the vibrant Rhythms of Latin dance in our summer
                   camp! Learn sizzling styles like salsa, bachata, and merengue,
                   infused with contemporary elements. Discover the passion and
@@ -32,10 +32,10 @@ const Slider = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">
+                <h1 className="mb-5 text-5xl text-white font-bold">
                   Discover the joy of Rhythmic Moves
                 </h1>
-                <p className="mb-5">
+                <p className="mb-5 font-semibold">
                   Discover the joy of dance in our summer camp! Join our
                   experienced instructors for a fun-filled week of learning
                   various dance styles, including hip-hop, jazz, and
@@ -51,10 +51,10 @@ const Slider = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">
+                <h1 className="mb-5 text-5xl text-white font-bold">
                   Move to the Rhythms of Life
                 </h1>
-                <p className="mb-5">
+                <p className="mb-5 font-semibold">
                   where dance becomes a transformative journey. Immerse yourself
                   in the power of movement as you explore diverse dance styles
                   and connect with your inner rhythm. Discover the harmony

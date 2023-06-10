@@ -4,8 +4,8 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className=" flex flex-col justify-between p-10 bg-green-900 text-white ">
-        <div className="footer">
+      <footer className=" flex flex-col justify-between p-10 bg-neutral text-neutral-content ">
+        <div className="footer max-w-7xl mx-auto">
           {/* <div>
             <img src={logo} alt="" />
             <p className="font-bold text-xl">
@@ -17,8 +17,8 @@ const Footer = () => {
           <div className=" items-center gap-2 justify-center">
             {/* <img className="w-14 pb-2 rounded-md" src={logo} alt="" /> */}
             <h1 className="text-3xl">
-              <span className="text-5xl">S</span>ummer
-              <span className="text-5xl">C</span>amp
+              <span className="text-5xl">R</span>ydmic
+              <span className="text-5xl">M</span>oves
             </h1>
             <p className="font-bold text-xl"> Providing reliable toy since 2016</p>
           </div>
@@ -83,7 +83,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="text-center mt-6">
+        <div className="text-center mt-6 max-w-7xl mx-auto">
           <p className="font-bold text-base">
             Copyright © 2026 - All right reserved by dot dot Ltd
           </p>
