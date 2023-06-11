@@ -21,6 +21,7 @@ import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
 import InstructorRoutes from './InstructorRoutes';
 import UpdateClass from '../Pages/DashBoard/InstractorRole/UpdateClass';
+import StudentRoute from './StudentRoute';
 
 const router = createBrowserRouter([
     {
@@ -80,19 +81,19 @@ const router = createBrowserRouter([
         },
         {
           path: 'selectedClasses',
-          element: <SelecedClasses></SelecedClasses>
+          element: <StudentRoute><SelecedClasses></SelecedClasses></StudentRoute>
         },
         {
           path: 'payment/:id',
-          element: <Payment></Payment>
+          element: <StudentRoute><Payment></Payment></StudentRoute>
         },
         {
           path: 'enrollClasses',
-          element: <EnrollClass></EnrollClass>
+          element: <StudentRoute><EnrollClass></EnrollClass> </StudentRoute>
         },
         {
           path: 'paymentHistory',
-          element: <PaymentHistory></PaymentHistory>
+          element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
         },
       ]
     }
