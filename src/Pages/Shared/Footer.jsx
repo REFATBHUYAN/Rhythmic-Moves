@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer max-w-7xl mx-auto">
           {/* <div>
             <img src={logo} alt="" />
-            <p className="font-bold text-xl">
+            <p className="font-bold text-lg">
               JUNGLE JUMBOREE
               <br />
               Providing reliable toy since 2016
@@ -17,33 +17,32 @@ const Footer = () => {
           <div className=" items-center gap-2 justify-center">
             {/* <img className="w-14 pb-2 rounded-md" src={logo} alt="" /> */}
             <h1 className="text-3xl">
-              <span className="text-5xl">R</span>ydmic
-              <span className="text-5xl">M</span>oves
+              Rhythmic Moves
             </h1>
             <p className="font-bold text-xl"> Providing reliable toy since 2016</p>
           </div>
           <div>
-            <span className="footer-title font-bold text-2xl">Services</span>
-            <a className="link link-hover font-semibold text-xl">
+            <span className="footer-title font-bold text-xl">Services</span>
+            <a className="link link-hover font-semibold text-lg">
               Free Delivery
             </a>
-            <a className="link link-hover font-semibold text-xl">
+            <a className="link link-hover font-semibold text-lg">
               Custom Design
             </a>
-            <a className="link link-hover font-semibold text-xl">Kid Toy</a>
-            <a className="link link-hover font-semibold text-xl">
+            <a className="link link-hover font-semibold text-lg">Kid Toy</a>
+            <a className="link link-hover font-semibold text-lg">
               Home Delivery
             </a>
           </div>
           <div>
-            <span className="footer-title font-bold text-2xl">Company</span>
-            <a className="link link-hover font-semibold text-xl">About us</a>
-            <a className="link link-hover font-semibold text-xl">Contact</a>
-            <a className="link link-hover font-semibold text-xl">Jobs</a>
-            <a className="link link-hover font-semibold text-xl">Shop</a>
+            <span className="footer-title font-bold text-xl">Company</span>
+            <a className="link link-hover font-semibold text-lg">About us</a>
+            <a className="link link-hover font-semibold text-lg">Contact</a>
+            <a className="link link-hover font-semibold text-lg">Jobs</a>
+            <a className="link link-hover font-semibold text-lg">Shop</a>
           </div>
           <div>
-            <span className="footer-title font-bold text-2xl">
+            <span className="footer-title font-bold text-xl">
               Contact Social
             </span>
             <div className="grid grid-flow-col gap-4">

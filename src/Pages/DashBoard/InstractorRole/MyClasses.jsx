@@ -36,9 +36,9 @@ const MyClasses = () => {
               <p>Enrolled Students: {cls.enrolled}</p>
               <p>Status: {cls.status}</p>
               {cls?.feedback && <p>Admin Feedback: {cls?.feedback}</p>}
-              <div className="card-actions">
+              <div className="card-actions ">
                 <Link to={`/dashboard/updateClass/${cls._id}`}>
-                  <button className="btn btn-primary">Update</button>
+                  <button className="btn btn-outline btn-info w-full">Update</button>
                 </Link>
               </div>
             </div>

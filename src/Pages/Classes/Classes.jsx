@@ -80,7 +80,7 @@ const Classes = () => {
                   disabled={
                     roles == "Instructor" || roles == "Admin" || cls.seats == 0
                   }
-                  className="btn btn-primary"
+                  className="btn btn-outline btn-info w-full"
                 >
                   Select
                 </button>

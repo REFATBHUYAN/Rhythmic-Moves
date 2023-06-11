@@ -62,14 +62,14 @@ const Register = () => {
       });
   };
   return (
-    <section className="bg-green-200 max-w-full mx-auto">
+    <section className="bg-base-100 max-w-full mx-auto py-8">
       <div className="max-w-7xl mx-auto">
-        <div className="hero min-h-screen bg-green-200">
+        <div className="hero min-h-screen bg-base-100">
           <div className="hero-content w-3/4 flex-col lg:flex-row">
             <div className="text-center h-3/4 w-full lg:text-left ">
-              <img src="https://i.ibb.co/zXbT9GV/image.png" alt="" />
+              <img src="https://i.ibb.co/D9RLZJz/istockphoto-1281150061-612x612.jpg" alt="" />
             </div>
-            <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-green-300">
+            <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-base-100 border-2 shadow-blue-500/50 ">
               <div className="card-body w-full">
                 <h1 className="text-5xl font-bold text-center mb-6">
                   Register
@@ -145,7 +145,7 @@ const Register = () => {
                     />
                   </div>
                   <div className="form-control mt-6">
-                    <input className="btn" type="submit" value="Register" />
+                    <input className="btn btn-outline" type="submit" value="Register" />
                   </div>
                 </form>
                 {/* state={{from: location?.state}} */}

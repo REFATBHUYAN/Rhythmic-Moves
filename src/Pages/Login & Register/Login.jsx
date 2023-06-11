@@ -40,14 +40,15 @@ const Login = () => {
       });
   };
   return (
-    <section className="max-w-full mx-auto bg-green-200">
-      <div className="max-w-7xl mx-auto bg-green-200">
-        <div className="hero min-h-screen bg-green-200">
+    <section className="max-w-full mx-auto bg-base-100 py-8">
+      <div className="max-w-7xl mx-auto bg-base-100">
+        <div className="hero min-h-screen bg-base-100">
           <div className="hero-content w-3/4 flex-col lg:flex-row">
-            <div className="text-center h-3/4 w-full lg:text-left">
-              <img src="https://i.ibb.co/zXbT9GV/image.png" alt="" />
+            <div className="text-center h-full w-full lg:text-left">
+              <img className="rounded-md h-full" src="https://i.ibb.co/D9RLZJz/istockphoto-1281150061-612x612.jpg" alt="" />
+              {/* <img src="https://i.ibb.co/zXbT9GV/image.png" alt="" /> */}
             </div>
-            <div className="card w-full max-w-sm shadow-2xl bg-green-300">
+            <div className="card w-full max-w-sm shadow-2xl bg-base-100 border-2 shadow-blue-500/50 ">
               <div className="card-body w-full">
                 <h1 className="text-5xl font-bold text-center mb-6">Login</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -85,7 +86,7 @@ const Login = () => {
                     </div>
                   </div>
                   <div className="form-control mt-6">
-                    <input className="btn" type="submit" value="Login" />
+                    <input className="btn btn-outline" type="submit" value="Login" />
                   </div>
                 </form>
                 {/* state={{from: location?.state}} */}
