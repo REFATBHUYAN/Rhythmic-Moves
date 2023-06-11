@@ -21,7 +21,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     setError("");
     if (data.password != data.confirmPassword) {
       setError("Password Does not match");
@@ -30,13 +30,13 @@ const Register = () => {
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         updateUserProfile(data.name, data.photo).then(() => {
         //   console.log(result);
         const user = { name: data.name, email: data.email, photo: data.photo };
           axiosSecure.post('/users', user)
             .then(data =>{
-              console.log('from axios', data.data)
+              // console.log('from axios', data.data)
               reset();
               if(data.data.insertedId){
                 Swal.fire({
@@ -57,7 +57,7 @@ const Register = () => {
         .catch(error=> console.log(error))
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError(error);
       });
   };

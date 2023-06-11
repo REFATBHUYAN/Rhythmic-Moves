@@ -27,11 +27,11 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     setError('')
     logIn(data.email, data.password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         // navigate('/');
         navigate(from, { replace: true });
       })

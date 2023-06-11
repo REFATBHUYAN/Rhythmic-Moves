@@ -14,7 +14,7 @@ const Instructors = () => {
       return res.data;
     }
   );
-  console.log(instructors);
+  // console.log(instructors);
   return (
     <div className="max-w-7xl mx-auto py-10">
       <h1 className="font-bold text-5xl text-center pb-6">Instructors</h1>

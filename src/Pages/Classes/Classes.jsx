@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import useTitle from "../../Hooks/useTitle";
-import PrivateRoute from "../../Router/PrivateRoute";
+// import PrivateRoute from "../../Router/PrivateRoute";
 
 const Classes = () => {
   useTitle('Classes')
@@ -15,8 +15,8 @@ const Classes = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  console.log(location);
-  console.log(navigate);
+  // console.log(location);
+  // console.log(navigate);
   const [axiosSecure] = useAxiosSecure();
   const [roles, isRolesLoading] = useRoles();
   const { data: classes = [], refetch } = useQuery(
@@ -53,7 +53,7 @@ const Classes = () => {
       classId: _id
     };
     axiosSecure.post("/selectClasses", selectedAdd).then((data) => {
-      console.log("from classes page", data.data);
+      // console.log("from classes page", data.data);
       if (data.data.insertedId) {
         Swal.fire({
           position: "top-end",

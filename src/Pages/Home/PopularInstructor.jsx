@@ -13,7 +13,7 @@ const PopularInstructor = () => {
         return res.data;
       }
     );
-    console.log(instructors);
+    // console.log(instructors);
     return (
       <div className='py-10 max-w-7xl mx-auto'>
         <h1 className="font-bold text-5xl text-center pb-8">Popular Instructors</h1>

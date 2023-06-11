@@ -23,8 +23,8 @@ const UpdateClass = () => {
   );
     const singleCless = myClasses.find(cls => cls._id === id);
 
-  console.log('sigleclss', singleCless);
-  console.log(myClasses);
+  // console.log('sigleclss', singleCless);
+  // console.log(myClasses);
     
     const {
         register,
@@ -34,8 +34,8 @@ const UpdateClass = () => {
         formState: { errors },
       } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
-        console.log(errors);
+        // console.log(data);
+        // console.log(errors);
         const formData = new FormData();
             formData.append('image', data.classImg[0])
             fetch(imgHostingURL, {
@@ -44,15 +44,15 @@ const UpdateClass = () => {
             })
             .then(res => res.json())
             .then(result =>{
-                console.log(result);
+                // console.log(result);
                 if(result.success){
                     const imgURL = result.data.display_url;
                     const { className, classImg, price, seats} = data;
                     const newClasses = { price: parseFloat(price), className, seats: parseInt(seats), classImg:imgURL}
-                    console.log(newClasses)
+                    // console.log(newClasses)
                     axiosSecure.patch(`/classUpdate/${singleCless._id}`, newClasses)
                     .then(data => {
-                        console.log('from add class section', data.data)
+                        // console.log('from add class section', data.data)
                         if(data.data.modifiedCount>0){
                             reset();
                             Swal.fire({

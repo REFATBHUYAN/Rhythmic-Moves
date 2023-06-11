@@ -11,12 +11,12 @@ const FeedBack = () => {
         event.preventDefault();
         
         const feedb = event.target.feedback.value;
-        console.log(feedb);
+        // console.log(feedb);
         const classFeedback = {feedback: feedb};
         axiosSecure.patch(`/classFeedback/${id}`,classFeedback)
         .then(data => {
             
-            console.log(data.data)
+            // console.log(data.data)
             if(data.data.modifiedCount>0){
               Swal.fire({
                   position: "top-end",

@@ -5,16 +5,6 @@ import { motion } from "framer-motion";
 
 const PopularClass = () => {
   const [axiosSecure] = useAxiosSecure();
-  // const [classes, setClasses] = useState([]);
-  // useEffect(()=>{
-  //   fetch('/dance.json')
-  //   .then(res => res.json())
-  //   .then(data =>{
-  //       console.log(data);
-  //       setClasses(data);
-  //       // setClasses(data.slice(0,6));
-  //   })
-  // },[])
   const { data: classes = [], refetch } = useQuery(
     ["classesPopular"],
     async () => {
@@ -22,7 +12,7 @@ const PopularClass = () => {
       return res.data;
     }
   );
-  console.log(classes);
+  // console.log(classes);
   return (
     <div className="py-10 max-w-7xl mx-auto px-5">
       <h1 className="text-5xl font-bold text-center py-8 mb-6">

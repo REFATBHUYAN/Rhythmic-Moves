@@ -13,13 +13,13 @@ const ManageClasses = () => {
     return res.data;
   });
 
-    console.log(classes);
+    // console.log(classes);
     const handleStatus = (item) => {
-      console.log(item);
+      // console.log(item);
       const newStatus = {status: 'Approved'};
       axiosSecure.patch(`/classes/${item._id}`, newStatus)
       .then(data =>{
-          console.log(data.data)
+          // console.log(data.data)
           refetch()
           if(data.data.modifiedCount>0){
             Swal.fire({
@@ -33,11 +33,11 @@ const ManageClasses = () => {
       })
     };
     const handleDeny = (item) => {
-      console.log(item);
+      // console.log(item);
       const newStatus = {status: 'Denied'};
       axiosSecure.patch(`/classes/${item._id}`, newStatus)
       .then(data =>{
-          console.log(data.data)
+          // console.log(data.data)
           refetch()
           if(data.data.modifiedCount>0){
             Swal.fire({

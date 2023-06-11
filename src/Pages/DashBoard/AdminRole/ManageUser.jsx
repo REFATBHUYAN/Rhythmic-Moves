@@ -11,11 +11,11 @@ const ManageUser = () => {
     const res = await axiosSecure.get("/users");
     return res.data; 
   });
-  console.log(users);
+  // console.log(users);
   const makeInstructor = (user) =>{
     axiosSecure.patch(`/users/instructor/${user._id}`)
     .then(data =>{
-      console.log(data.data)
+      // console.log(data.data)
       refetch();
       if(data.data.modifiedCount>0){
         Swal.fire({
@@ -31,7 +31,7 @@ const ManageUser = () => {
   const makeAdmin = user =>{
     axiosSecure.patch(`/users/admin/${user._id}`)
     .then(data =>{
-      console.log(data.data)
+      // console.log(data.data)
       refetch();
       if(data.data.modifiedCount>0){
         Swal.fire({

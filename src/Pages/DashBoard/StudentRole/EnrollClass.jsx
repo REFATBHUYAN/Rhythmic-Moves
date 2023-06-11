@@ -10,7 +10,7 @@ const EnrollClass = () => {
     const res = await axiosSecure.get(`/enrollClasses/${user?.email}`);
     return res.data;
   });
-  console.log(enroolCls);
+  // console.log(enroolCls);
   return (
     <div className="py-8">
       <h1 className="font-bold text-5xl text-center pb-8">My Enrolled Classes</h1>

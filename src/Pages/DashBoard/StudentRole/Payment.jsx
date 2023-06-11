@@ -10,7 +10,7 @@ const Payment = () => {
     const [cart] = useCart();
     const {id} = useParams();
     const singleClass = cart.find(c => c._id === id);
-    console.log(singleClass);
+    // console.log(singleClass);
     // const total = cart.reduce((sum, item) => sum + item.price, 0);
     // const price = parseFloat(total.toFixed(2))
     return (

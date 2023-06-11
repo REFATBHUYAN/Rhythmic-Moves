@@ -6,13 +6,13 @@ import Swal from "sweetalert2";
 
 const SelecedClasses = () => {
   const [cart, refetch] = useCart();
-  console.log(cart);
+  // console.log(cart);
   // how does reduce work!!!
   const total = cart.reduce((sum, item) => item.price + sum, 0);
-  console.log(cart);
+  // console.log(cart);
   const [axiosSecure] = useAxiosSecure();
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: "Are you wanted to Delete?",
       text: "You won't be able to revert this!",
@@ -24,7 +24,7 @@ const SelecedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/selectClass/${id}`).then((data) => {
-          console.log(data.data);
+          // console.log(data.data);
           if (data.data.deletedCount > 0) {
             refetch();
             Swal.fire(

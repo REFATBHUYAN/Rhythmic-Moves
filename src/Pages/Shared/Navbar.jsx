@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   const toglleTheme = (event) => {
     const isChecked = event.target.checked;
-    console.log(isChecked);
+    // console.log(isChecked);
     if (isChecked) {
       setDarkMode(true);
     } else {

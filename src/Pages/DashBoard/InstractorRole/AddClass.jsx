@@ -16,7 +16,7 @@ const AddClass = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     const formData = new FormData();
         formData.append('image', data.classImg[0])
         fetch(imgHostingURL, {
@@ -25,15 +25,15 @@ const AddClass = () => {
         })
         .then(res => res.json())
         .then(result =>{
-            console.log(result);
+            // console.log(result);
             if(result.success){
                 const imgURL = result.data.display_url;
                 const {name, email, className, classImg, price, seats} = data;
                 const newClasses = {name, price: parseFloat(price), email, className, seats: parseInt(seats), classImg:imgURL, status: 'Pending', enrolled: 0}
-                console.log(newClasses)
+                // console.log(newClasses)
                 axiosSecure.post('/classes', newClasses)
                 .then(data => {
-                    console.log('from add class section', data.data)
+                    // console.log('from add class section', data.data)
                     if(data.data.insertedId){
                         reset();
                         Swal.fire({

@@ -13,9 +13,9 @@ const Dashboard = () => {
   const {user} = useContext(AuthContext);
   const [roles, isRolesLoading] = useRoles();
   const location = useLocation();
-  console.log(location)
+  // console.log(location)
  
-  console.log(roles);
+  // console.log(roles);
   const sideOptions = (
     <>
       {roles == "Instructor" && (
