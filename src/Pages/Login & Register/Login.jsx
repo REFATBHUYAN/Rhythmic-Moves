@@ -32,8 +32,8 @@ const Login = () => {
     logIn(data.email, data.password)
       .then((result) => {
         console.log(result.user);
-        navigate('/');
-        // navigate(from, { replace: true });
+        // navigate('/');
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error);

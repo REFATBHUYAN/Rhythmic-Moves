@@ -11,13 +11,14 @@ const SocialLogin = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
+    console.log('from in social', from , location)
     const handleGoogleSignIn = () =>{
         googleLogIn()
         .then(result =>{
             console.log(result.user);
             const loggedUser = result.user;
             const user = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser.photoURL };
-            axiosSecure.post('/user', user)
+            axiosSecure.post('/users', user)
             .then(data =>{
               console.log('from axios', data.data)
               navigate(from, { replace: true });

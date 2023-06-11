@@ -4,14 +4,19 @@ import { useQuery } from "react-query";
 import useRoles from "../../Hooks/useRoles";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import useTitle from "../../Hooks/useTitle";
+import PrivateRoute from "../../Router/PrivateRoute";
 
 const Classes = () => {
   useTitle('Classes')
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  console.log(location);
+  console.log(navigate);
   const [axiosSecure] = useAxiosSecure();
   const [roles, isRolesLoading] = useRoles();
   const { data: classes = [], refetch } = useQuery(
@@ -30,7 +35,10 @@ const Classes = () => {
         text: "Please Login First",
         
       });
-      navigate('/login')
+    
+      return navigate('/login', {state:{from: location, replace: true}} );
+      
+      
     }
     const { name, price, email, className, seats, classImg, _id, enrolled } = cls;
     const selectedAdd = {
