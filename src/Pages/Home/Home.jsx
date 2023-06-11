@@ -6,6 +6,7 @@ import WeProvide from './WeProvide';
 import { ScrollRestoration } from 'react-router-dom';
 import { useTime } from 'framer-motion';
 import useTitle from '../../Hooks/useTitle';
+import Follow from './Follow';
 
 const Home = () => {
     useTitle('Home')
@@ -15,6 +16,7 @@ const Home = () => {
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <WeProvide></WeProvide>
+            <Follow></Follow>
             <ScrollRestoration />
         </div>
     );

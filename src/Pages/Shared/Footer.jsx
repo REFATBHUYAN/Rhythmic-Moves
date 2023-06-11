@@ -19,28 +19,22 @@ const Footer = () => {
             <h1 className="text-3xl">
               Rhythmic Moves
             </h1>
-            <p className="font-bold text-xl"> Providing reliable toy since 2016</p>
+            <p className="font-bold text-lg"> Providing Quality Dance Training since 2016</p>
           </div>
           <div>
             <span className="footer-title font-bold text-xl">Services</span>
             <a className="link link-hover font-semibold text-lg">
-              Free Delivery
+            Choreography
             </a>
             <a className="link link-hover font-semibold text-lg">
-              Custom Design
+            Workshops
             </a>
-            <a className="link link-hover font-semibold text-lg">Kid Toy</a>
+            <a className="link link-hover font-semibold text-lg">Costumes</a>
             <a className="link link-hover font-semibold text-lg">
-              Home Delivery
+            Recreation
             </a>
           </div>
-          <div>
-            <span className="footer-title font-bold text-xl">Company</span>
-            <a className="link link-hover font-semibold text-lg">About us</a>
-            <a className="link link-hover font-semibold text-lg">Contact</a>
-            <a className="link link-hover font-semibold text-lg">Jobs</a>
-            <a className="link link-hover font-semibold text-lg">Shop</a>
-          </div>
+          
           <div>
             <span className="footer-title font-bold text-xl">
               Contact Social
@@ -84,7 +78,7 @@ const Footer = () => {
         </div>
         <div className="text-center mt-6 max-w-7xl mx-auto">
           <p className="font-bold text-base">
-            Copyright © 2026 - All right reserved by dot dot Ltd
+            Copyright © 2026 - All right reserved by Rhythmic Moves
           </p>
         </div>
       </footer>
