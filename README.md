@@ -12,7 +12,7 @@
 
 <h3>Used Packages/ Technology:</h3>
 <p>Technology: React | ExpressJs | NodeJs | MongoDB | Firebase | Tailwind CSS | Strip | Axios | </p>
-<p>Packages: react-stripe-js|axios|firebase|framer-motion|react-hook-form|react-icons|react-query|react-router-dom|sweetalert2
+<p>Packages: React-stripe-js | Axios| Firebase | Framer-motion | React-hook-form | React-icons | React-query | React-router-dom | Sweetalert2
 |swiper </p>
 
 
