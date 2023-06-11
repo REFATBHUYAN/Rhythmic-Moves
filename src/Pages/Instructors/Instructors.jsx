@@ -2,8 +2,10 @@ import React from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import { motion } from "framer-motion";
+import useTitle from "../../Hooks/useTitle";
 
 const Instructors = () => {
+  useTitle('Instructors')
   const [axiosSecure] = useAxiosSecure();
   const { data: instructors = [], refetch } = useQuery(
     ["istructor"],

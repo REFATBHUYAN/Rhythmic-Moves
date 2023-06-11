@@ -5,8 +5,10 @@ import SocialLogin from "../../components/SocialLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
+  useTitle('Login')
   const [show, setShow] = useState(false);
   const [error, setError] = useState('');
   const { logIn } = useContext(AuthContext);

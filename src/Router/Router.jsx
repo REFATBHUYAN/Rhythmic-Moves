@@ -20,6 +20,7 @@ import MyClasses from '../Pages/DashBoard/InstractorRole/MyClasses';
 import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
 import InstructorRoutes from './InstructorRoutes';
+import UpdateClass from '../Pages/DashBoard/InstractorRole/UpdateClass';
 
 const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
         {
           path: 'myClasses',
           element: <InstructorRoutes><MyClasses></MyClasses></InstructorRoutes>
+        },
+        {
+          path: 'updateClass/:id',
+          element: <InstructorRoutes><UpdateClass></UpdateClass> </InstructorRoutes>
         },
         {
           path: 'selectedClasses',

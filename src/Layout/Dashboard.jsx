@@ -5,8 +5,10 @@ import Navbar from "../Pages/Shared/Navbar";
 import Footer from "../Pages/Shared/Footer";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaBook, FaBookOpen, FaRegCreditCard, FaRegEdit, FaUsersCog } from "react-icons/fa";
+import useTitle from "../Hooks/useTitle";
 
 const Dashboard = () => {
+  useTitle('Dashboard');
   
   const {user} = useContext(AuthContext);
   const [roles, isRolesLoading] = useRoles();

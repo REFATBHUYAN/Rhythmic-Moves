@@ -41,6 +41,7 @@ const AuthProvider = ({children}) => {
             console.log('user from useffect', loggedUser)
             setUser(loggedUser);
             if(loggedUser){
+                // axios.post('http://localhost:5000/jwt', {email: loggedUser.email})
                 axios.post('https://assignment-12-batch-7-server.vercel.app/jwt', {email: loggedUser.email})
                 .then(data =>{
                     localStorage.setItem('access-token', data.data.token)

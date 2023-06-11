@@ -5,8 +5,10 @@ import SocialLogin from "../../components/SocialLogin";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useTitle from "../../Hooks/useTitle";
 
 const Register = () => {
+  useTitle('Register')
   const [error, setError] = useState("");
   const [axiosSecure] = useAxiosSecure();
   const { createUser, user, updateUserProfile, logOut } = useContext(AuthContext);
@@ -108,7 +110,7 @@ const Register = () => {
                       className="input input-bordered"
                       {...register("email", { required: true })}
                     />
-                    {errors.email && <span>Email is Required</span>}
+                    {errors.email && <span  className='text-red-300'>Email is Required</span>}
                   </div>
                   <div className="form-control">
                     <label className="label">
@@ -125,7 +127,7 @@ const Register = () => {
                       })}
                     />
                     {errors.password && (
-                      <span>
+                      <span  className='text-red-300'>
                         At least a Capital Letter & number and 6 char minimum
                       </span>
                     )}

@@ -6,8 +6,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import useTitle from "../../Hooks/useTitle";
 
 const Classes = () => {
+  useTitle('Classes')
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [axiosSecure] = useAxiosSecure();

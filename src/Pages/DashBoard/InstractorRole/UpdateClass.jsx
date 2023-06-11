@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+const imgbbKey = import.meta.env.VITE_imagbb_key;
 
 
 
 const UpdateClass = () => {
-    const [axiosSecure] = useAxiosSecure();
+  const {id} = useParams();
+  const {user} = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
+  const imgHostingURL = `https://api.imgbb.com/1/upload?key=${imgbbKey}`;
+  const { data: myClasses = [], refetch } = useQuery(
+    ["myClasses"],
+    async () => {
+      const res = await axiosSecure.get(`/classes/myClasses/${user?.email}`);
+      return res.data;
+    }
+  );
+    const singleCless = myClasses.find(cls => cls._id === id);
+
+  console.log('sigleclss', singleCless);
+  console.log(myClasses);
+    
     const {
         register,
         handleSubmit,
@@ -15,6 +35,7 @@ const UpdateClass = () => {
       } = useForm();
     const onSubmit = (data) => {
         console.log(data);
+        console.log(errors);
         const formData = new FormData();
             formData.append('image', data.classImg[0])
             fetch(imgHostingURL, {
@@ -26,18 +47,18 @@ const UpdateClass = () => {
                 console.log(result);
                 if(result.success){
                     const imgURL = result.data.display_url;
-                    const {name, email, className, classImg, price, seats} = data;
-                    const newClasses = {name, price: parseFloat(price), email, className, seats: parseInt(seats), classImg:imgURL, status: 'Pending', enrolled: 0}
+                    const { className, classImg, price, seats} = data;
+                    const newClasses = { price: parseFloat(price), className, seats: parseInt(seats), classImg:imgURL}
                     console.log(newClasses)
-                    axiosSecure.post('/classes', newClasses)
+                    axiosSecure.patch(`/classUpdate/${singleCless._id}`, newClasses)
                     .then(data => {
                         console.log('from add class section', data.data)
-                        if(data.data.insertedId){
+                        if(data.data.modifiedCount>0){
                             reset();
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'Class added successfully',
+                                title: 'Class information updated successfully',
                                 showConfirmButton: false,
                                 timer: 1500
                               })
@@ -58,6 +79,7 @@ const UpdateClass = () => {
           <input
             type="text"
             name="className"
+            defaultValue={singleCless.className}
             placeholder="Class name"
             className="input input-bordered"
             {...register("className", { required: true })}
@@ -70,41 +92,12 @@ const UpdateClass = () => {
           <input
             type="file"
             name="classImg"
+            
             placeholder="Class Image"
             className="input "
             {...register("classImg", { required: true })}
           />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Instructor Name</span>
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={user?.displayName}
-            // defaultValue={user?.displayName}
-            placeholder={user?.displayName}
-            readOnly
-            className="rounded-md p-4 input-bordered font-semibold text-black"
-            {...register("name")}
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Instructor Email</span>
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={user?.email}
-            // defaultValue={user?.email}
-            placeholder={user?.email}
-            readOnly
-            className="rounded-md p-4 input-bordered font-semibold text-black"
-            {...register("email")}
-          />
-          
+           {errors.classImg && <span className='text-red-300 pt-2'>Img Field is Required</span>}
         </div>
         <div className="form-control">
           <label className="label">
@@ -113,6 +106,7 @@ const UpdateClass = () => {
           <input
             type="text"
             name="seats"
+            defaultValue={singleCless.seats}
             placeholder="Available Seats"
             className="input input-bordered"
             {...register("seats", { required: true })}
@@ -125,6 +119,7 @@ const UpdateClass = () => {
           <input
             type="number"
             name="price"
+            defaultValue={singleCless.price}
             placeholder="Price"
             className="input input-bordered"
             {...register("price", {
