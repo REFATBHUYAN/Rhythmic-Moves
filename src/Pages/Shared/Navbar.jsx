@@ -157,7 +157,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <button>
+              <button className="font-semibold">
                 <NavLink
                   to={`/login`}
                   className={({ isActive, isPending }) =>
