@@ -139,11 +139,14 @@ const Dashboard = () => {
         <div className="drawer-content flex flex-col ">
           {/* Page content here */}
           {
-            location.pathname === "/dashboard" && <>
-            <h1 className="mt-20 text-5xl font-bold text-center">Welcome {user?.displayName}</h1>
-            <p className="text-center text-5xl font-bold p-10">to</p>
-            <p className="text-5xl text-center font-bold ">{`Your ${roles}`} DashBoard</p>
-            </>
+            location.pathname === "/dashboard" && <div className="flex flex-col justify-center items-center gap-4 py-16">
+            <img className="rounded-full w-40 h-40 text-center" src={user?.photoURL} alt="" />
+            <p className="font-semibold">{user?.email}</p>
+            
+            <h1 className=" text-4xl font-bold text-center">Welcome <span className="text-blue-600">{user?.displayName}</span></h1>
+            <p className="text-center text-3xl font-bold">on</p>
+            <p className="text-4xl text-center font-bold ">{`Your ${roles}`} DashBoard</p>
+            </div>
           }
           
           <Outlet></Outlet>

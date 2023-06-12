@@ -38,7 +38,7 @@ const SelecedClasses = () => {
     });
   };
   return (
-    <div>
+    <div className="px-6">
       <h1 className="text-5xl text-center py-8">My Selected Class</h1>
       {/* <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-3xl">Total Items: {cart.length}</h3>
@@ -78,11 +78,11 @@ const SelecedClasses = () => {
                   <th>
                     <div className="flex gap-3">
                       <Link to={`/dashboard/payment/${user._id}`}>
-                        <button className="btn bg-green-300 btn-xs">PAY</button>
+                        <button className="btn btn-outline btn-info btn-xs">PAY</button>
                       </Link>
                       <button
                         onClick={() => handleDelete(user._id)}
-                        className="btn bg-green-300 btn-xs"
+                        className="btn btn-outline btn-error btn-xs"
                       >
                         Delete
                       </button>

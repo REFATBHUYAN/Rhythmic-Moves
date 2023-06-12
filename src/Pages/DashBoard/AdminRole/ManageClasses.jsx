@@ -52,7 +52,7 @@ const ManageClasses = () => {
       })
     };
   return (
-    <div>
+    <div className="p-8">
       <h1 className="text-5xl font-bold text-center py-6">
         All Classes : {classes.length}
       </h1>
@@ -77,15 +77,15 @@ const ManageClasses = () => {
                   onClick={() => handleStatus(cls)}
                 //   disabled={cls.status === 'Approved'}
                   disabled={cls.status === 'Approved' || cls.status === 'Denied'}
-                  className="btn btn-primary"
+                  className="btn btn-outline btn-info"
                 >
                   Approve
                 </button>
                 <button onClick={() => handleDeny(cls)} 
                 // disabled={ cls.status === 'Denied'} 
                 disabled={cls.status === 'Approved' || cls.status === 'Denied'} 
-                className="btn btn-primary">Deny</button>
-                <Link to={`feedback/${cls._id}`} disabled={cls.status != 'Denied'} className="btn btn-primary">Feedback</Link>
+                className="btn btn-outline btn-info">Deny</button>
+                <Link to={`feedback/${cls._id}`} disabled={cls.status != 'Denied'} className="btn btn-outline btn-info">Feedback</Link>
               </div>
             </div>
           </div>

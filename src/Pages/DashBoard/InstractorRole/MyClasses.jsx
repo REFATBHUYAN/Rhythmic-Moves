@@ -16,7 +16,7 @@ const MyClasses = () => {
   );
   // console.log(myClasses);
   return (
-    <div className="my-8">
+    <div className="p-8">
       <h1 className="font-semibold text-4xl text-center">My Classes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
         {myClasses.map((cls) => (

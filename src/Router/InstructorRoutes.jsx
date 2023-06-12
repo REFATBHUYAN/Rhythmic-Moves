@@ -7,8 +7,9 @@ const InstructorRoutes = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     const [roles, isRolesLoading] = useRoles();
     const location = useLocation();
+    console.log(roles === 'Instructor' , roles)
 
-    if(loading || isRolesLoading){
+    if(loading || isRolesLoading || roles !== 'Instructor'){
         return <progress className="progress w-56"></progress>
     }
 

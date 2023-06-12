@@ -12,7 +12,7 @@ const EnrollClass = () => {
   });
   // console.log(enroolCls);
   return (
-    <div className="py-8">
+    <div className="p-8">
       <h1 className="font-bold text-5xl text-center pb-8">My Enrolled Classes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
         {enroolCls.map((cls) => (
@@ -23,9 +23,9 @@ const EnrollClass = () => {
             <div className="card-body items-center text-center">
               <h2 className="card-title">{cls.className}</h2>
               {/* <p>Instructor Email: {cls.email}</p> */}
-              <p>Instructor Name: {cls.name}</p>
-              <p>Price: ${cls.price}</p>
-              <p>Available Seats: {cls.seats}</p>
+              <p><span className="font-semibold">Instructor Name</span>: {cls.name}</p>
+              <p><span className="font-semibold">Price</span>: $<span className="text-orange-600">{cls.price}</span></p>
+              <p><span className="font-semibold">Available Seats</span>: {cls.seats}</p>
             </div>
           </div>
         ))}

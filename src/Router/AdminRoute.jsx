@@ -8,7 +8,7 @@ const AdminRoute = ({children}) => {
     const [roles, isRolesLoading] = useRoles();
     const location = useLocation();
 
-    if(loading || isRolesLoading){
+    if(loading || isRolesLoading || roles !== 'Admin' ){
         return <progress className="progress w-56"></progress>
     }
 

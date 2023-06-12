@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 const useRoles = () => {
     const [axiosSecure] = useAxiosSecure();
     const {user, loading} = useContext(AuthContext);
-    const {data: roles='', isloading: isRolesLoading} = useQuery({
+    const {data: roles, isloading: isRolesLoading} = useQuery({
         queryKey:['rules', user?.email],
         enabled: !loading,
         queryFn: async () => {

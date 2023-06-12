@@ -15,7 +15,9 @@ const PaymentHistory = () => {
   );
   // console.log(payments);
   return (
-    <div>
+    <div className="p-8">
+      <h1 className="font-bold text-5xl text-center pb-8">My Payment History</h1>
+      
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

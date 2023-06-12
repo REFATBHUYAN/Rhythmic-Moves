@@ -12,7 +12,7 @@ const Slider = () => {
           <div className="hero min-h-screen bg-[url('https://i.ibb.co/PwXpHh0/istockphoto-1205900002-612x612.jpg')]">
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
+              <div className="max-w-md md:max-w-lg">
                 <h1 className="mb-5 text-5xl text-white font-bold">
                   Experience the Joy of Dance
                 </h1>
@@ -31,7 +31,7 @@ const Slider = () => {
           <div className="hero min-h-screen bg-[url('https://i.ibb.co/pfp7FTq/istockphoto-1165291144-612x612.jpg')]">
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
+              <div className="max-w-md md:max-w-lg">
                 <h1 className="mb-5 text-5xl text-white font-bold">
                   Discover the joy of Rhythmic Moves
                 </h1>
@@ -50,7 +50,7 @@ const Slider = () => {
           <div className="hero min-h-screen bg-[url('https://i.ibb.co/P5VpZKq/istockphoto-1098021180-612x612.jpg')]">
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
+              <div className="max-w-md md:max-w-lg">
                 <h1 className="mb-5 text-5xl text-white font-bold">
                   Move to the Rhythms of Life
                 </h1>

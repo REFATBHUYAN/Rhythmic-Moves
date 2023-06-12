@@ -80,14 +80,14 @@ const ManageUser = () => {
                     <button
                       onClick={()=>makeInstructor(user)}
                       disabled={user?.role ==='Instructor'}
-                      className="btn bg-green-300 btn-xs"
+                      className="btn btn-outline btn-info btn-xs"
                     >
                       Make Instructor
                     </button>
                     <button
                       onClick={() => makeAdmin(user)}
                       disabled={user?.role ==='Admin'}
-                      className="btn bg-green-300 btn-xs"
+                      className="btn btn-outline btn-info btn-xs"
                     >
                       Make Admin
                     </button>

@@ -8,7 +8,7 @@ const StudentRoute = ({children}) => {
     const [roles, isRolesLoading] = useRoles();
     const location = useLocation();
 
-    if(loading || isRolesLoading){
+    if(loading || isRolesLoading || roles !== 'Student' ){
         return <progress className="progress w-56"></progress>
     }
 
