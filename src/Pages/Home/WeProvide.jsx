@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const WeProvide = () => {
   return (
-    <section className="max-w-7xl mx-auto ">
+    <section className="max-w-7xl mx-auto px-6">
       <div className="w-4/5 mx-auto py-12">
-        <h1 className="text-2xl font-semibold text-center text-blue-700">
+        <h1 className="text-lg md:text-2xl font-semibold text-center text-blue-700">
           Why People Choose Our Camp?
         </h1>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold text-center p-8"
+          className="text-3xl md:text-5xl font-bold text-center p-8"
         >
           We provide the best experience
         </motion.h1>

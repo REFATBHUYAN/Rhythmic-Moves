@@ -14,7 +14,7 @@ const PopularClass = () => {
   );
   // console.log(classes);
   return (
-    <div className="py-10 max-w-7xl mx-auto px-5">
+    <div className="py-10 max-w-7xl mx-auto px-6">
       <h1 className="text-5xl font-bold text-center py-8 mb-6">
         Popular Classes
       </h1>
